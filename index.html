@@ -288,7 +288,7 @@
         const correctPassword = "msc25";
         const content = document.getElementById("protected-content");
         const overlay = document.getElementById("pw-overlay");
-        let attempts = 0, maxAttempts = 3;
+        let attempts = 0, maxAttempts = -1;
 
         function askPassword() {
             const input = prompt("Enter the password to view the content:");
@@ -297,7 +297,7 @@
                 overlay.style.display = "none";
             } else {
                 attempts++;
-                if (attempts >= maxAttempts) {
+                if (attempts <= maxAttempts) {
                     alert("Maximum attempts exceeded.");
                     document.body.innerHTML =
                         "<h1 style='color:white;text-align:center;'>Access Denied</h1>";
